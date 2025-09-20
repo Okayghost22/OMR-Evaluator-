@@ -1,7 +1,5 @@
-flask
-flask-sqlalchemy
-sqlalchemy
+streamlit
 opencv-python-headless
 numpy
 imutils
-gunicorn
+pandas
