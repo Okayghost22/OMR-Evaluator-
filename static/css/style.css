@@ -1,0 +1,176 @@
+/* ======================== */
+/* 1. Color Palette & Fonts */
+/* ======================== */
+:root {
+    --primary-color: #2c3e50;      /* Dark background */
+    --secondary-color: #ecf0f1;    /* Light text */
+    --accent-color: #e74c3c;       /* Vibrant red */
+    --success-color: #27ae60;      /* Green for correct answers */
+    --error-color: #c0392b;        /* Deep red for incorrect answers */
+    --border-color: #34495e;       /* Darker gray for borders */
+    --table-header-bg: #34495e;    /* Table header background */
+    --table-row-hover: #3b516b;    /* Hover background for table rows */
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================== */
+/* 2. Layouts (Flexbox & Grid) */
+/* =========================== */
+
+/* This will align the heading and the button group */
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* You could use this for a more complex layout, but for this simple dashboard, flexbox on the .d-flex container is sufficient. */
+
+/* =============================== */
+/* 3. Container, Heading, & Buttons */
+/* =============================== */
+
+/* Adding a subtle box shadow to the main container for a 3D effect */
+.container {
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Subtle, dark shadow */
+    transition: all 0.5s ease-in-out;
+}
+
+h1 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    opacity: 0; /* Initially invisible for the animation */
+    animation: fadeInDown 1s forwards;
+}
+
+.btn {
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+    background-color: var(--error-color);
+    border-color: var(--error-color);
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #a0281b;
+    border-color: #a0281b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ====================== */
+/* 4. Table Enhancements */
+/* ====================== */
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adds space between rows */
+}
+
+.table-bordered {
+    border: none;
+}
+
+.table-dark thead {
+    background-color: var(--table-header-bg);
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--accent-color);
+    border-radius: 8px 8px 0 0;
+}
+
+.table thead th {
+    border-bottom: none;
+    padding: 15px 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.table tbody tr {
+    background-color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on each row */
+    animation: fadeInUp 0.5s forwards;
+    opacity: 0;
+}
+
+.table tbody tr:hover {
+    background-color: var(--table-row-hover);
+    transform: scale(1.02); /* Makes the row slightly bigger on hover */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 12px 15px;
+}
+
+/* ==================== */
+/* 5. Entrance Animations */
+/* ==================== */
+
+/* Keyframes for the heading animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Keyframes for the table rows animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply staggered animation to table rows */
+.table tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.table tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.table tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.table tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.table tbody tr:nth-child(5) { animation-delay: 0.5s; }
+/* ... and so on for all your rows */

@@ -1,0 +1,7 @@
+flask
+flask-sqlalchemy
+sqlalchemy
+opencv-python-headless
+numpy
+imutils
+gunicorn
