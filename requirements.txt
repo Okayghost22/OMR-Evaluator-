@@ -3,3 +3,4 @@ opencv-python-headless
 numpy
 imutils
 pandas
+scikit-learn
